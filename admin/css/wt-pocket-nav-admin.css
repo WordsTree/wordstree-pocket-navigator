@@ -1,0 +1,68 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+#wt-pocket-nav-container {
+    /*margin-left: 10px;*/
+}
+
+#wt-pocket-nav-container ul{
+    list-style: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+/* sidebar */
+#wt-pocket-tag-container {
+    width: 100%;
+}
+
+#wt-pocket-tags-list {
+
+}
+
+#wt-pocket-tags-list li {
+    display: block;
+}
+
+#wt-pocket-tags-list li a{
+    padding: 10px 20px;
+    border: 1px solid #006600;
+    background: #006600;
+    color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+}
+
+#wt-pocket-items-container {
+    width: 100%;
+    display: none;
+}
+
+#wt-pocket-items-list {
+
+}
+
+#wt-pocket-items-list li {
+    display: block;
+}
+
+#wt-pocket-items-list li a {
+    padding: 10px 20px;
+    border: 1px solid #ccffcc;
+    background: #ccffcc;
+    color: #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+}
+
+.wt-pocket-item-list {
+    display: none;
+}
