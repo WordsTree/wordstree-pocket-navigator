@@ -144,9 +144,13 @@ class Wt_Pocket_Nav {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
         // meta box
-        $this->loader->add_action( 'admin_footer', $plugin_meta_box, 'wt_pocket_nav_ajax' );
-        $this->loader->add_action( 'wp_ajax_wt_pocket_nav_action', $plugin_meta_box, 'wt_pocket_nav_action' );
-        $this->loader->add_action( 'wp_ajax_wt_pocket_nav_action_data', $plugin_meta_box, 'wt_pocket_nav_action_data' );
+        $page_name = $page_slug = trim( $_SERVER["REQUEST_URI"] , '/' );
+        $page_name = explode('/', $page_name);
+        if (substr($page_name[count($page_name) - 1], 0, 8) === 'post.php') {
+            $this->loader->add_action('admin_footer', $plugin_meta_box, 'wt_pocket_nav_ajax');
+        }
+        $this->loader->add_action('wp_ajax_wt_pocket_nav_action', $plugin_meta_box, 'wt_pocket_nav_action');
+        $this->loader->add_action('wp_ajax_wt_pocket_nav_action_data', $plugin_meta_box, 'wt_pocket_nav_action_data');
 
 	}
 

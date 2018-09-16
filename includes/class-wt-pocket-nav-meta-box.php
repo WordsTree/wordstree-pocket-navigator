@@ -247,7 +247,7 @@ class WT_Pocket_Nav_Meta_Box {
     public function getPocketInstance() {
         $params = array(
             // TODO: put this in the settings page
-            'consumerKey' => ''
+            'consumerKey' => '80531-839593e7dab50e8db88190ef'
         );
 
         if (empty($params['consumerKey'])) {
