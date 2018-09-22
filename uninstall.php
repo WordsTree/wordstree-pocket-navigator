@@ -22,7 +22,7 @@
  * @link       savioresende.com.br
  * @since      1.0.0
  *
- * @package    Wt_Pocket_Nav
+ * @package    WTPN__Pocket_Nav
  */
 
 // If uninstall not called from WordPress, then exit.

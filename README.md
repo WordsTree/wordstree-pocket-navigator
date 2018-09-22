@@ -24,7 +24,7 @@ With a meta box, you have available your pocket favorites while you compose your
 
 # Installation
 
-1. Upload `WT-Pocket-Nav` to the `/wp-content/plugins/` directory
+1. Upload `WTPN-Pocket-Nav` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Now you have it available in your post pages
 
