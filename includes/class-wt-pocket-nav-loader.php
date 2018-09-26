@@ -7,11 +7,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Wt_Pocket_Nav
- * @subpackage Wt_Pocket_Nav/includes
+ * @package    WTPN_Pocket_Nav
+ * @subpackage WTPN_Pocket_Nav/includes
  * @author     Savio <savio@savioresende.com.br>
  */
-class Wt_Pocket_Nav_Loader {
+class WTPN_Pocket_Nav_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

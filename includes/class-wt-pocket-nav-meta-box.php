@@ -4,7 +4,7 @@
  * Defined how the meta box behaves.
  *
  * @package    WT_Pocket_Nav_Meta_Box
- * @subpackage Wt_Pocket_Nav/includes
+ * @subpackage WTPN_Pocket_Nav/includes
  * @author     Savio <savio@savioresende.com.br>
  */
 class WT_Pocket_Nav_Meta_Box {

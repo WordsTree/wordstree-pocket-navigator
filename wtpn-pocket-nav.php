@@ -13,7 +13,7 @@
  * Plugin Name:       WordsTree Pocket Navigator
  * Plugin URI:        wordstree.com
  * Description:       This plugin shows in the post sidebar, in the admin screen, a meta box for you to have access to your favorites at Pocket, so you have your references where you need them.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Savio Resende
  * Author URI:        savioresende.com.br
  * License:           GPL-2.0+
@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME_VERSION', '1.0.1' );
 
 // meta box
 require_once plugin_dir_path(__FILE__) . 'includes/class-wtpn-pocket-nav-meta-box.php';

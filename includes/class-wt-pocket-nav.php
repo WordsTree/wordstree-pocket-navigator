@@ -7,11 +7,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Wt_Pocket_Nav
- * @subpackage Wt_Pocket_Nav/includes
+ * @package    WTPN_Pocket_Nav
+ * @subpackage WTPN_Pocket_Nav/includes
  * @author     Savio <savio@savioresende.com.br>
  */
-class Wt_Pocket_Nav {
+class WTPN_Pocket_Nav {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -19,7 +19,7 @@ class Wt_Pocket_Nav {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Wt_Pocket_Nav_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      WTPN_Pocket_Nav_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -70,10 +70,10 @@ class Wt_Pocket_Nav {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Wt_Pocket_Nav_Loader. Orchestrates the hooks of the plugin.
-	 * - Wt_Pocket_Nav_i18n. Defines internationalization functionality.
-	 * - Wt_Pocket_Nav_Admin. Defines all hooks for the admin area.
-	 * - Wt_Pocket_Nav_Public. Defines all hooks for the public side of the site.
+	 * - WTPN_Pocket_Nav_Loader. Orchestrates the hooks of the plugin.
+	 * - WTPN_Pocket_Nav_i18n. Defines internationalization functionality.
+	 * - WTPN_Pocket_Nav_Admin. Defines all hooks for the admin area.
+	 * - WTPN_Pocket_Nav_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -106,14 +106,14 @@ class Wt_Pocket_Nav {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wt-pocket-nav-public.php';
 
-		$this->loader = new Wt_Pocket_Nav_Loader();
+		$this->loader = new WTPN_Pocket_Nav_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Wt_Pocket_Nav_i18n class in order to set the domain and to register the hook
+	 * Uses the WTPN_Pocket_Nav_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -121,7 +121,7 @@ class Wt_Pocket_Nav {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Wt_Pocket_Nav_i18n();
+		$plugin_i18n = new WTPN_Pocket_Nav_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -136,7 +136,7 @@ class Wt_Pocket_Nav {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Wt_Pocket_Nav_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new WTPN_Pocket_Nav_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$plugin_meta_box = new WT_Pocket_Nav_Meta_Box;
 
@@ -163,7 +163,7 @@ class Wt_Pocket_Nav {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Wt_Pocket_Nav_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new WTPN_Pocket_Nav_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -194,7 +194,7 @@ class Wt_Pocket_Nav {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Wt_Pocket_Nav_Loader    Orchestrates the hooks of the plugin.
+	 * @return    WTPN_Pocket_Nav_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

@@ -6,19 +6,19 @@
  * @link       savioresende.com.br
  * @since      1.0.0
  *
- * @package    Wt_Pocket_Nav
- * @subpackage Wt_Pocket_Nav/admin
+ * @package    WTPN_Pocket_Nav
+ * @subpackage WTPN_Pocket_Nav/admin
  */
 
 /**
  * The admin-specific functionality of the plugin and hooks to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Wt_Pocket_Nav
- * @subpackage Wt_Pocket_Nav/admin
+ * @package    WTPN_Pocket_Nav
+ * @subpackage WTPN_Pocket_Nav/admin
  * @author     Savio <savio@savioresende.com.br>
  */
-class Wt_Pocket_Nav_Admin {
+class WTPN_Pocket_Nav_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -63,10 +63,10 @@ class Wt_Pocket_Nav_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wt_Pocket_Nav_Loader as all of the hooks are defined
+		 * defined in WTPN_Pocket_Nav_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wt_Pocket_Nav_Loader will then create the relationship
+		 * The WTPN_Pocket_Nav_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -86,10 +86,10 @@ class Wt_Pocket_Nav_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Wt_Pocket_Nav_Loader as all of the hooks are defined
+		 * defined in WTPN_Pocket_Nav_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Wt_Pocket_Nav_Loader will then create the relationship
+		 * The WTPN_Pocket_Nav_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

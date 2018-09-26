@@ -4,7 +4,7 @@ Contributors: lotharthesavior
 Donate link: https://wordstree.com
 Tags: pocket, widget, plugins, wordpress, metabox, favorites, utilities
 Requires at least: 3.0.1
-Tested up to: 3.4
+Tested up to: 4.9.8
 Stable tag: 4.3
 Requires PHP: 5.2.4
 License: GPLv2 or later
@@ -45,7 +45,16 @@ This plugin will open a tab asking your permission to bring to you your favorite
 
 - Meta Box added to posts and pages screen with the user's Pocket links.
 
+= 1.0.1 =
+
+- Fixed CSS presentation for the Post Editor Screen.
+
 == Upgrade Notice ==
 
 = 1.0 =
+
 Our first version.
+
+= 1.0.1 =
+
+Bug Fixes.

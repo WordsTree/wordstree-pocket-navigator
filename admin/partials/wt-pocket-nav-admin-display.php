@@ -8,8 +8,8 @@
  * @link       savioresende.com.br
  * @since      1.0.0
  *
- * @package    Wt_Pocket_Nav
- * @subpackage Wt_Pocket_Nav/admin/partials
+ * @package    WTPN_Pocket_Nav
+ * @subpackage WTPN_Pocket_Nav/admin/partials
  */
 ?>
 

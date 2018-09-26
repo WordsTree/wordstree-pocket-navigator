@@ -66,8 +66,3 @@ a:hover {
 .wtpn-pocket-item-list {
     display: none;
 }
-
-/* sidebar - post editor */
-#submitdiv {
-    display: none !important;
-}
