@@ -20,6 +20,13 @@ class WTPN_Pocket_Nav_Meta_Box {
     }
 
     /**
+     * @return string
+     */
+    private function get_user_option_key() {
+        return get_current_user_id() . '-wtpn-user-pocket-data';
+    }
+
+    /**
      *
      */
     public function init_metabox() {
@@ -53,44 +60,52 @@ class WTPN_Pocket_Nav_Meta_Box {
     /**
      * Main html
      *
-     * @param $post
+     * @param WP_Post $post
      */
     public function render_wtpn_pocket_nav_metabox( $post ) {
+        // get the cache
+        $user_initial_data = json_decode(
+            wp_cache_get( $this->get_user_option_key() ),
+            true
+        );
+
+        $list_html = ($user_initial_data) ?
+            $this->build_tags_section($this->get_tags_from_items($user_initial_data['list'])) : '';
+        $list_html .= ($user_initial_data) ? $this->build_items_section($user_initial_data) : 'You list is empty. Consider refresh to sync with your Pocket account!';
+
         ?><div id="wtpn-pocket-nav-container">
-            <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
-            <span class="sr-only">Loading...</span>
+            <div class="menu"><a class="btn button" onclick="reload_wtpn_pocket_nav_action(true)">Refresh</a></div>
+            <div class="content">
+                <?php echo $list_html; ?>
+            </div>
         </div><?php
     }
 
     /**
      *
      */
-    public function wtpn_pocket_nav_ajax() { ?>
+    public function wtpn_pocket_nav_ajax() { 
+        ?>
         <script type="text/javascript" >
             function reload_wtpn_pocket_nav_action(open_popup){
                 jQuery.post(ajaxurl, {'action': 'wtpn_pocket_nav_action'}, function(response) {
-                    if (open_popup !== true) {
-                        jQuery('#wtpn-pocket-nav-container').html(response);
-                    }
+                    var content_space = jQuery(jQuery('#wtpn-pocket-nav-container .content')[0]);
+                    content_space.html(response);
 
                     // TODO: check the validity of the request
                     var parsed_response = JSON.parse(response);
-
-                    jQuery('#wtpn-pocket-nav-container').html('<div><a class="btn" onclick="reload_wtpn_pocket_nav_action(true)">Refresh</a></div>');
 
                     if (typeof parsed_response['redirect'] !== 'undefined') {
                         window.open(parsed_response['redirect']);
                     }
                 });
             }
-            jQuery(document).ready(function($) {
-                reload_wtpn_pocket_nav_action();
-            });
 
             // functions to navigate
             function wtpn_pocket_nav_to_items(tag) {
                 jQuery('#wtpn-pocket-tag-container').hide();
                 jQuery('#wtpn-pocket-items-container').show();
+                jQuery('.wtpn-pocket-item-list').hide();
                 jQuery('.wtpn-pocket-tag-' + tag).show();
             }
             function wtpn_pocket_nav_to_tags() {
@@ -140,18 +155,15 @@ class WTPN_Pocket_Nav_Meta_Box {
             );
             $items = $pocket->retrieve($params, $user['access_token']);
 
+            // store the options in the cache
+            wp_cache_set( $this->get_user_option_key(), json_encode($items) );
+
             // empty list
             if (count($items) < 1) {
                 wp_die('<div>Empty list.</div>');
             }
 
-            $tag_items = array_map(function($item){
-                if (!isset($item['tags'])) {
-                    return false;
-                }
-                return current($item['tags'])['tag'];
-            }, $items['list']);
-            $tag_items = array_unique(array_filter($tag_items));
+            $tag_items = $this->get_tags_from_items($items['list']);
 
             // Tags list
             $message .= $this->build_tags_section($tag_items);
@@ -163,6 +175,20 @@ class WTPN_Pocket_Nav_Meta_Box {
         }
 
         wp_die($message);
+    }
+
+    /**
+     * @param array $list
+     */
+    private function get_tags_from_items($list) {
+        $tag_items = array_map(function($item){
+            if (!isset($item['tags'])) {
+                return false;
+            }
+            return current($item['tags'])['tag'];
+        }, $list);
+        $tag_items = array_unique(array_filter($tag_items));
+        return array_unique(array_filter($tag_items));
     }
 
     /**

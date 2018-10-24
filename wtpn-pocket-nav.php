@@ -30,11 +30,11 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.1' );
+if (!defined('WTPN_POCKET_NAV_VERSION')) {
+    define( 'WTPN_POCKET_NAV_VERSION', '1.0.2' );
+}
 
 // meta box
 require_once plugin_dir_path(__FILE__) . 'includes/class-wtpn-pocket-nav-meta-box.php';

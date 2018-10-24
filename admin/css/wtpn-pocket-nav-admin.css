@@ -66,3 +66,7 @@ a:hover {
 .wtpn-pocket-item-list {
     display: none;
 }
+
+#wtpn-pocket-nav-container .menu {
+    margin-bottom: 20px !important;
+}
